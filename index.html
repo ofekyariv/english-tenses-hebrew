@@ -40,7 +40,6 @@
             padding: 20px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
@@ -62,7 +61,6 @@
             opacity: 0.9;
         }
 
-        /* Navigation */
         .nav-tabs {
             display: flex;
             gap: 10px;
@@ -93,7 +91,6 @@
             border-color: var(--primary);
         }
 
-        /* Sections */
         .section {
             display: none;
         }
@@ -108,7 +105,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cards */
         .card {
             background: var(--card);
             border-radius: 20px;
@@ -133,7 +129,6 @@
             font-size: 1.2rem;
         }
 
-        /* Formula Box */
         .formula {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             border-radius: 15px;
@@ -160,13 +155,17 @@
             color: var(--text);
         }
 
-        /* Examples */
         .example {
             background: #f0fdf4;
             border-radius: 12px;
             padding: 15px 20px;
             margin: 10px 0;
             border-right: 4px solid var(--secondary);
+        }
+
+        .example.negative {
+            background: #fef2f2;
+            border-right-color: var(--error);
         }
 
         .example-en {
@@ -183,7 +182,6 @@
             font-size: 0.95rem;
         }
 
-        /* Highlight */
         .highlight {
             background: linear-gradient(120deg, #fef08a 0%, #fef08a 100%);
             padding: 2px 6px;
@@ -191,7 +189,13 @@
             font-weight: 600;
         }
 
-        /* Signal Words */
+        .highlight-red {
+            background: linear-gradient(120deg, #fecaca 0%, #fecaca 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
         .signal-words {
             display: flex;
             flex-wrap: wrap;
@@ -208,7 +212,6 @@
             font-weight: 500;
         }
 
-        /* Comparison Table */
         .comparison {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -255,7 +258,6 @@
             color: var(--secondary);
         }
 
-        /* Quiz Styles */
         .quiz-progress {
             background: var(--border);
             border-radius: 10px;
@@ -385,7 +387,6 @@
             transform: none;
         }
 
-        /* Results */
         .results {
             text-align: center;
             padding: 40px 20px;
@@ -409,7 +410,6 @@
             margin-bottom: 20px;
         }
 
-        /* Tips */
         .tip {
             background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
             border-radius: 15px;
@@ -427,7 +427,47 @@
             gap: 8px;
         }
 
-        /* Footer */
+        .warning {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 5px solid var(--error);
+        }
+
+        .warning-title {
+            font-weight: 700;
+            color: #991b1b;
+            margin-bottom: 10px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            direction: ltr;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
         footer {
             text-align: center;
             padding: 30px 20px;
@@ -435,7 +475,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             header h1 {
                 font-size: 1.5rem;
@@ -461,9 +500,10 @@
     <div class="container">
         <div class="nav-tabs">
             <div class="nav-tab active" data-section="simple">📘 Present Simple</div>
+            <div class="nav-tab" data-section="negative">❌ Do/Does/Don't/Doesn't</div>
             <div class="nav-tab" data-section="progressive">📗 Present Progressive</div>
             <div class="nav-tab" data-section="compare">⚖️ השוואה</div>
-            <div class="nav-tab" data-section="quiz">📝 חידון</div>
+            <div class="nav-tab" data-section="quiz">📝 חידון (100 שאלות)</div>
         </div>
 
         <!-- Present Simple Section -->
@@ -514,48 +554,6 @@
             </div>
 
             <div class="card">
-                <h2>❌ משפטים שליליים</h2>
-                <div class="formula">
-                    <div class="formula-title">📐 המבנה:</div>
-                    <code>Subject + don't/doesn't + Verb (base form)</code>
-                </div>
-
-                <div class="example">
-                    <div class="example-en">I <span class="highlight">don't like</span> coffee.</div>
-                    <div class="example-he">אני לא אוהב קפה.</div>
-                </div>
-                <div class="example">
-                    <div class="example-en">He <span class="highlight">doesn't eat</span> meat.</div>
-                    <div class="example-he">הוא לא אוכל בשר.</div>
-                </div>
-
-                <div class="tip">
-                    <div class="tip-title">⚠️ שים לב!</div>
-                    <p>
-                        אחרי <strong>doesn't</strong> הפועל חוזר לצורה הבסיסית (בלי s)!<br>
-                        ❌ He doesn't <s>plays</s> &nbsp;&nbsp; ✅ He doesn't play
-                    </p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>❓ משפטי שאלה</h2>
-                <div class="formula">
-                    <div class="formula-title">📐 המבנה:</div>
-                    <code>Do/Does + Subject + Verb (base form)?</code>
-                </div>
-
-                <div class="example">
-                    <div class="example-en"><span class="highlight">Do</span> you speak English?</div>
-                    <div class="example-he">האם אתה מדבר אנגלית?</div>
-                </div>
-                <div class="example">
-                    <div class="example-en"><span class="highlight">Does</span> she work here?</div>
-                    <div class="example-he">האם היא עובדת פה?</div>
-                </div>
-            </div>
-
-            <div class="card">
                 <h2>🚦 מילות סימן (Signal Words)</h2>
                 <p>כשאתה רואה את המילים האלה, סביר שצריך Present Simple:</p>
                 <div class="signal-words">
@@ -569,6 +567,232 @@
                     <span class="signal-word">every week</span>
                     <span class="signal-word">on Mondays</span>
                     <span class="signal-word">once a week</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DO/DOES/DON'T/DOESN'T Section -->
+        <div id="negative" class="section">
+            <div class="card">
+                <h2>🔄 Do vs Does - מתי משתמשים בכל אחד?</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Positive Helper</th>
+                            <th>Negative Helper</th>
+                        </tr>
+                        <tr>
+                            <td>I</td>
+                            <td>do</td>
+                            <td>don't (do not)</td>
+                        </tr>
+                        <tr>
+                            <td>You</td>
+                            <td>do</td>
+                            <td>don't (do not)</td>
+                        </tr>
+                        <tr>
+                            <td>We</td>
+                            <td>do</td>
+                            <td>don't (do not)</td>
+                        </tr>
+                        <tr>
+                            <td>They</td>
+                            <td>do</td>
+                            <td>don't (do not)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>He</strong></td>
+                            <td><strong>does</strong></td>
+                            <td><strong>doesn't (does not)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>She</strong></td>
+                            <td><strong>does</strong></td>
+                            <td><strong>doesn't (does not)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>It</strong></td>
+                            <td><strong>does</strong></td>
+                            <td><strong>doesn't (does not)</strong></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">💡 כלל הזהב!</div>
+                    <p>
+                        <strong>He, She, It</strong> → <strong>DOES / DOESN'T</strong><br>
+                        כל השאר (I, You, We, They) → <strong>DO / DON'T</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>❌ משפטי שלילה עם Don't / Doesn't</h2>
+                
+                <div class="formula">
+                    <div class="formula-title">📐 המבנה:</div>
+                    <code>Subject + don't/doesn't + Verb (BASE FORM!)</code>
+                </div>
+
+                <div class="warning">
+                    <div class="warning-title">⚠️ הכלל הכי חשוב!</div>
+                    <p>
+                        אחרי <strong>don't</strong> או <strong>doesn't</strong> - הפועל תמיד בצורה הבסיסית!<br>
+                        ה-S כבר "נמצא" ב-doesn't, אז אין צורך להוסיף שוב!
+                    </p>
+                </div>
+
+                <h3>✅ דוגמאות נכונות:</h3>
+                <div class="example">
+                    <div class="example-en">I <span class="highlight">don't like</span> coffee.</div>
+                    <div class="example-he">אני לא אוהב קפה.</div>
+                </div>
+                <div class="example">
+                    <div class="example-en">You <span class="highlight">don't understand</span> the question.</div>
+                    <div class="example-he">אתה לא מבין את השאלה.</div>
+                </div>
+                <div class="example">
+                    <div class="example-en">We <span class="highlight">don't have</span> homework today.</div>
+                    <div class="example-he">אין לנו שיעורי בית היום.</div>
+                </div>
+                <div class="example">
+                    <div class="example-en">They <span class="highlight">don't want</span> to go.</div>
+                    <div class="example-he">הם לא רוצים ללכת.</div>
+                </div>
+                <div class="example">
+                    <div class="example-en">He <span class="highlight">doesn't eat</span> meat.</div>
+                    <div class="example-he">הוא לא אוכל בשר.</div>
+                </div>
+                <div class="example">
+                    <div class="example-en">She <span class="highlight">doesn't speak</span> French.</div>
+                    <div class="example-he">היא לא מדברת צרפתית.</div>
+                </div>
+                <div class="example">
+                    <div class="example-en">It <span class="highlight">doesn't work</span>.</div>
+                    <div class="example-he">זה לא עובד.</div>
+                </div>
+
+                <h3>❌ טעויות נפוצות - אל תעשה ככה!</h3>
+                <div class="example negative">
+                    <div class="example-en">❌ He doesn't <s>plays</s> → ✅ He doesn't <span class="highlight">play</span></div>
+                    <div class="example-he">אחרי doesn't אין S!</div>
+                </div>
+                <div class="example negative">
+                    <div class="example-en">❌ She doesn't <s>likes</s> → ✅ She doesn't <span class="highlight">like</span></div>
+                    <div class="example-he">הפועל חוזר לצורה הבסיסית!</div>
+                </div>
+                <div class="example negative">
+                    <div class="example-en">❌ He don't like → ✅ He <span class="highlight">doesn't</span> like</div>
+                    <div class="example-he">He/She/It תמיד עם doesn't!</div>
+                </div>
+                <div class="example negative">
+                    <div class="example-en">❌ They doesn't know → ✅ They <span class="highlight">don't</span> know</div>
+                    <div class="example-he">They תמיד עם don't!</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>❓ משפטי שאלה עם Do / Does</h2>
+                
+                <div class="formula">
+                    <div class="formula-title">📐 המבנה:</div>
+                    <code>Do/Does + Subject + Verb (BASE FORM)?</code>
+                </div>
+
+                <h3>שאלות עם DO (I, You, We, They):</h3>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Do</span> you speak English?</div>
+                    <div class="example-he">האם אתה מדבר אנגלית?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Do</span> they live here?</div>
+                    <div class="example-he">האם הם גרים פה?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Do</span> we have time?</div>
+                    <div class="example-he">האם יש לנו זמן?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Do</span> I need a ticket?</div>
+                    <div class="example-he">האם אני צריך כרטיס?</div>
+                </div>
+
+                <h3>שאלות עם DOES (He, She, It):</h3>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Does</span> she work here?</div>
+                    <div class="example-he">האם היא עובדת פה?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Does</span> he play football?</div>
+                    <div class="example-he">האם הוא משחק כדורגל?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Does</span> it rain a lot here?</div>
+                    <div class="example-he">האם יורד פה הרבה גשם?</div>
+                </div>
+
+                <div class="warning">
+                    <div class="warning-title">⚠️ שים לב!</div>
+                    <p>
+                        גם בשאלה - אחרי Does הפועל בצורה בסיסית!<br>
+                        ❌ Does he <s>plays</s>? → ✅ Does he <span class="highlight">play</span>?
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📝 שאלות עם מילות שאלה (Wh-Questions)</h2>
+                
+                <div class="formula">
+                    <div class="formula-title">📐 המבנה:</div>
+                    <code>Wh-word + do/does + Subject + Verb (BASE FORM)?</code>
+                </div>
+
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Where does</span> she live?</div>
+                    <div class="example-he">איפה היא גרה?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">What do</span> you want?</div>
+                    <div class="example-he">מה אתה רוצה?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">When does</span> the movie start?</div>
+                    <div class="example-he">מתי הסרט מתחיל?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">Why do</span> they always come late?</div>
+                    <div class="example-he">למה הם תמיד מגיעים מאוחר?</div>
+                </div>
+                <div class="example">
+                    <div class="example-en"><span class="highlight">How does</span> this work?</div>
+                    <div class="example-he">איך זה עובד?</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🎯 תרגול מהיר - Do או Does?</h2>
+                <div class="example">
+                    <div class="example-en">___ you like pizza? → <span class="highlight">Do</span></div>
+                </div>
+                <div class="example">
+                    <div class="example-en">___ he speak Spanish? → <span class="highlight">Does</span></div>
+                </div>
+                <div class="example">
+                    <div class="example-en">___ they have a car? → <span class="highlight">Do</span></div>
+                </div>
+                <div class="example">
+                    <div class="example-en">___ she know the answer? → <span class="highlight">Does</span></div>
+                </div>
+                <div class="example">
+                    <div class="example-en">___ it work? → <span class="highlight">Does</span></div>
+                </div>
+                <div class="example">
+                    <div class="example-en">___ we need help? → <span class="highlight">Do</span></div>
                 </div>
             </div>
         </div>
@@ -644,18 +868,10 @@
                     <div class="example-en">sit → si<span class="highlight">tt</span>ing</div>
                     <div class="example-en">swim → swi<span class="highlight">mm</span>ing</div>
                 </div>
-
-                <div class="tip">
-                    <div class="tip-title">📝 CVC = עיצור + תנועה + עיצור</div>
-                    <p>
-                        Consonant-Vowel-Consonant<br>
-                        לדוגמה: r-u-n (עיצור-תנועה-עיצור)
-                    </p>
-                </div>
             </div>
 
             <div class="card">
-                <h2>❌ משפטים שליליים</h2>
+                <h2>❌ משפטי שלילה ב-Progressive</h2>
                 <div class="formula">
                     <div class="formula-title">📐 המבנה:</div>
                     <code>Subject + am/is/are + not + Verb-ing</code>
@@ -676,7 +892,7 @@
             </div>
 
             <div class="card">
-                <h2>❓ משפטי שאלה</h2>
+                <h2>❓ שאלות ב-Progressive</h2>
                 <div class="formula">
                     <div class="formula-title">📐 המבנה:</div>
                     <code>Am/Is/Are + Subject + Verb-ing?</code>
@@ -802,7 +1018,7 @@
         <!-- Quiz Section -->
         <div id="quiz" class="section">
             <div class="card">
-                <h2>📝 חידון - בדוק את עצמך!</h2>
+                <h2>📝 חידון מקיף - 100 שאלות!</h2>
                 <p>בחר את התשובה הנכונה להשלמת המשפט:</p>
                 
                 <div id="quiz-container">
@@ -854,106 +1070,142 @@
             });
         });
 
-        // Quiz Data
+        // 100 Questions!
         const questions = [
-            {
-                question: "She ___ to school every day.",
-                options: ["goes", "is going", "go", "going"],
-                correct: 0,
-                explanation: "פעולה שחוזרת כל יום = Present Simple. עם She מוסיפים es."
-            },
-            {
-                question: "Look! The baby ___.",
-                options: ["sleeps", "is sleeping", "sleep", "sleeping"],
-                correct: 1,
-                explanation: "Look! מציין שזה קורה עכשיו = Present Progressive."
-            },
-            {
-                question: "I always ___ breakfast at 7 AM.",
-                options: ["eat", "am eating", "eats", "eating"],
-                correct: 0,
-                explanation: "always + זמן קבוע = הרגל = Present Simple."
-            },
-            {
-                question: "They ___ TV at the moment.",
-                options: ["watch", "watches", "are watching", "is watching"],
-                correct: 2,
-                explanation: "at the moment = עכשיו = Present Progressive. They → are."
-            },
-            {
-                question: "The Earth ___ around the Sun.",
-                options: ["is revolving", "revolves", "revolve", "are revolving"],
-                correct: 1,
-                explanation: "עובדה מדעית/כללית = Present Simple."
-            },
-            {
-                question: "Right now, he ___ his homework.",
-                options: ["does", "do", "is doing", "doing"],
-                correct: 2,
-                explanation: "Right now = ברגע זה = Present Progressive."
-            },
-            {
-                question: "We ___ English twice a week.",
-                options: ["are studying", "studies", "study", "is studying"],
-                correct: 2,
-                explanation: "twice a week = שגרה קבועה = Present Simple. We → study."
-            },
-            {
-                question: "Listen! Someone ___.",
-                options: ["sings", "is singing", "sing", "singing"],
-                correct: 1,
-                explanation: "Listen! = קורה עכשיו = Present Progressive."
-            },
-            {
-                question: "My father ___ coffee. He prefers tea.",
-                options: ["doesn't like", "isn't liking", "don't like", "not liking"],
-                correct: 0,
-                explanation: "like הוא stative verb - משתמשים ב-Present Simple."
-            },
-            {
-                question: "What ___ right now?",
-                options: ["do you do", "you are doing", "are you doing", "you do"],
-                correct: 2,
-                explanation: "right now = שאלה על עכשיו = Present Progressive question."
-            },
-            {
-                question: "She ___ tennis every Sunday.",
-                options: ["is playing", "plays", "play", "playing"],
-                correct: 1,
-                explanation: "every Sunday = שגרה = Present Simple. She → plays."
-            },
-            {
-                question: "I ___ this song! It's beautiful.",
-                options: ["am loving", "love", "loves", "loving"],
-                correct: 1,
-                explanation: "love הוא stative verb - לא משתמשים ב-Progressive."
-            },
-            {
-                question: "Currently, they ___ a new house.",
-                options: ["build", "builds", "are building", "is building"],
-                correct: 2,
-                explanation: "Currently = בתקופה הנוכחית = Present Progressive."
-            },
-            {
-                question: "Water ___ at 100 degrees Celsius.",
-                options: ["is boiling", "boils", "boil", "are boiling"],
-                correct: 1,
-                explanation: "עובדה מדעית = Present Simple."
-            },
-            {
-                question: "___ she ___ English well?",
-                options: ["Does / speak", "Is / speaking", "Do / speaks", "Does / speaks"],
-                correct: 0,
-                explanation: "שאלה על יכולת כללית = Present Simple. Does + base form."
-            }
+            // Present Simple - Positive (1-15)
+            { question: "She ___ to school every day.", options: ["goes", "is going", "go", "going"], correct: 0, explanation: "פעולה שחוזרת כל יום = Present Simple. She → goes." },
+            { question: "I always ___ breakfast at 7 AM.", options: ["eat", "am eating", "eats", "eating"], correct: 0, explanation: "always + זמן קבוע = הרגל = Present Simple." },
+            { question: "The Earth ___ around the Sun.", options: ["is revolving", "revolves", "revolve", "are revolving"], correct: 1, explanation: "עובדה מדעית = Present Simple." },
+            { question: "He ___ tennis every Sunday.", options: ["is playing", "plays", "play", "playing"], correct: 1, explanation: "every Sunday = שגרה = Present Simple. He → plays." },
+            { question: "Water ___ at 100 degrees Celsius.", options: ["is boiling", "boils", "boil", "are boiling"], correct: 1, explanation: "עובדה מדעית = Present Simple." },
+            { question: "They ___ in Tel Aviv.", options: ["are living", "lives", "live", "is living"], correct: 2, explanation: "מצב קבוע = Present Simple. They → live." },
+            { question: "My father ___ coffee every morning.", options: ["drinks", "is drinking", "drink", "drinking"], correct: 0, explanation: "every morning = הרגל = Present Simple." },
+            { question: "The train ___ at 8 PM.", options: ["is leaving", "leaves", "leave", "leaving"], correct: 1, explanation: "לוח זמנים קבוע = Present Simple." },
+            { question: "She ___ three languages.", options: ["speaks", "is speaking", "speak", "speaking"], correct: 0, explanation: "יכולת כללית = Present Simple." },
+            { question: "Birds ___ south in winter.", options: ["are flying", "flies", "fly", "is flying"], correct: 2, explanation: "עובדה כללית = Present Simple. Birds → fly." },
+            { question: "He ___ to music on the bus.", options: ["is listening", "listens", "listen", "listening"], correct: 1, explanation: "הרגל = Present Simple. He → listens." },
+            { question: "The shop ___ at 9 AM.", options: ["is opening", "opens", "open", "opening"], correct: 1, explanation: "לוח זמנים = Present Simple." },
+            { question: "We ___ English twice a week.", options: ["are studying", "studies", "study", "is studying"], correct: 2, explanation: "twice a week = שגרה = Present Simple." },
+            { question: "She ___ the piano beautifully.", options: ["is playing", "plays", "play", "playing"], correct: 1, explanation: "יכולת כללית = Present Simple." },
+            { question: "It often ___ here in winter.", options: ["is raining", "rains", "rain", "raining"], correct: 1, explanation: "often = תדירות = Present Simple." },
+
+            // Present Simple - Negative with DON'T/DOESN'T (16-35)
+            { question: "I ___ coffee.", options: ["don't like", "doesn't like", "am not liking", "not like"], correct: 0, explanation: "I + don't + base form." },
+            { question: "He ___ meat.", options: ["don't eat", "doesn't eat", "isn't eating", "not eating"], correct: 1, explanation: "He + doesn't + base form (eat, not eats!)." },
+            { question: "She ___ French.", options: ["don't speak", "doesn't speak", "isn't speaking", "not speaks"], correct: 1, explanation: "She + doesn't + speak." },
+            { question: "They ___ here.", options: ["doesn't live", "don't live", "aren't living", "not live"], correct: 1, explanation: "They + don't + base form." },
+            { question: "It ___ well.", options: ["don't work", "doesn't work", "isn't working", "not works"], correct: 1, explanation: "It + doesn't + work." },
+            { question: "We ___ homework today.", options: ["doesn't have", "don't have", "aren't having", "not have"], correct: 1, explanation: "We + don't + have." },
+            { question: "You ___ the answer.", options: ["doesn't know", "don't know", "aren't knowing", "not know"], correct: 1, explanation: "You + don't + know." },
+            { question: "My sister ___ fish.", options: ["don't like", "doesn't like", "isn't liking", "not likes"], correct: 1, explanation: "My sister (she) + doesn't + like." },
+            { question: "The baby ___ vegetables.", options: ["don't eat", "doesn't eat", "isn't eating", "not eats"], correct: 1, explanation: "The baby (it) + doesn't + eat." },
+            { question: "His friends ___ football.", options: ["doesn't play", "don't play", "aren't playing", "not play"], correct: 1, explanation: "His friends (they) + don't + play." },
+            { question: "She ___ to go.", options: ["don't want", "doesn't want", "isn't wanting", "not wants"], correct: 1, explanation: "She + doesn't + want." },
+            { question: "I ___ the question.", options: ["doesn't understand", "don't understand", "am not understanding", "not understand"], correct: 1, explanation: "I + don't + understand." },
+            { question: "He ___ a car.", options: ["don't have", "doesn't have", "isn't having", "not has"], correct: 1, explanation: "He + doesn't + have (not has!)." },
+            { question: "The dog ___ cats.", options: ["don't like", "doesn't like", "isn't liking", "not likes"], correct: 1, explanation: "The dog (it) + doesn't + like." },
+            { question: "My parents ___ TV.", options: ["doesn't watch", "don't watch", "aren't watching", "not watch"], correct: 1, explanation: "My parents (they) + don't + watch." },
+            { question: "She ___ her homework on time.", options: ["don't finish", "doesn't finish", "isn't finishing", "not finishes"], correct: 1, explanation: "She + doesn't + finish." },
+            { question: "We ___ with strangers.", options: ["doesn't talk", "don't talk", "aren't talking", "not talk"], correct: 1, explanation: "We + don't + talk." },
+            { question: "He ___ early.", options: ["don't wake up", "doesn't wake up", "isn't waking up", "not wakes up"], correct: 1, explanation: "He + doesn't + wake up." },
+            { question: "The bus ___ here.", options: ["don't stop", "doesn't stop", "isn't stopping", "not stops"], correct: 1, explanation: "The bus (it) + doesn't + stop." },
+            { question: "They ___ English at home.", options: ["doesn't speak", "don't speak", "aren't speaking", "not speak"], correct: 1, explanation: "They + don't + speak." },
+
+            // Present Simple - Questions with DO/DOES (36-55)
+            { question: "___ you speak English?", options: ["Do", "Does", "Are", "Is"], correct: 0, explanation: "You → Do." },
+            { question: "___ she work here?", options: ["Do", "Does", "Are", "Is"], correct: 1, explanation: "She → Does." },
+            { question: "___ they live in New York?", options: ["Do", "Does", "Are", "Is"], correct: 0, explanation: "They → Do." },
+            { question: "___ he play football?", options: ["Do", "Does", "Are", "Is"], correct: 1, explanation: "He → Does." },
+            { question: "___ it rain a lot here?", options: ["Do", "Does", "Are", "Is"], correct: 1, explanation: "It → Does." },
+            { question: "___ we need tickets?", options: ["Do", "Does", "Are", "Is"], correct: 0, explanation: "We → Do." },
+            { question: "___ your sister like pizza?", options: ["Do", "Does", "Are", "Is"], correct: 1, explanation: "Your sister (she) → Does." },
+            { question: "___ the children know the answer?", options: ["Do", "Does", "Are", "Is"], correct: 0, explanation: "The children (they) → Do." },
+            { question: "What ___ you want?", options: ["do", "does", "are", "is"], correct: 0, explanation: "You → do." },
+            { question: "Where ___ she live?", options: ["do", "does", "are", "is"], correct: 1, explanation: "She → does." },
+            { question: "When ___ the movie start?", options: ["do", "does", "are", "is"], correct: 1, explanation: "The movie (it) → does." },
+            { question: "Why ___ they always come late?", options: ["do", "does", "are", "is"], correct: 0, explanation: "They → do." },
+            { question: "How ___ this work?", options: ["do", "does", "are", "is"], correct: 1, explanation: "This (it) → does." },
+            { question: "___ your father drive to work?", options: ["Do", "Does", "Are", "Is"], correct: 1, explanation: "Your father (he) → Does." },
+            { question: "___ the students have homework?", options: ["Do", "Does", "Are", "Is"], correct: 0, explanation: "The students (they) → Do." },
+            { question: "What time ___ the bank open?", options: ["do", "does", "are", "is"], correct: 1, explanation: "The bank (it) → does." },
+            { question: "How often ___ you exercise?", options: ["do", "does", "are", "is"], correct: 0, explanation: "You → do." },
+            { question: "___ Tom and Jerry fight a lot?", options: ["Do", "Does", "Are", "Is"], correct: 0, explanation: "Tom and Jerry (they) → Do." },
+            { question: "Where ___ your brother work?", options: ["do", "does", "are", "is"], correct: 1, explanation: "Your brother (he) → does." },
+            { question: "___ it cost a lot?", options: ["Do", "Does", "Are", "Is"], correct: 1, explanation: "It → Does." },
+
+            // Present Progressive - Positive (56-70)
+            { question: "Look! The baby ___.", options: ["sleeps", "is sleeping", "sleep", "sleeping"], correct: 1, explanation: "Look! = עכשיו = Present Progressive." },
+            { question: "Right now, he ___ his homework.", options: ["does", "is doing", "do", "doing"], correct: 1, explanation: "Right now = ברגע זה = Present Progressive." },
+            { question: "They ___ TV at the moment.", options: ["watch", "are watching", "watches", "watching"], correct: 1, explanation: "at the moment = עכשיו = Present Progressive." },
+            { question: "Listen! Someone ___.", options: ["sings", "is singing", "sing", "singing"], correct: 1, explanation: "Listen! = קורה עכשיו = Present Progressive." },
+            { question: "Currently, they ___ a new house.", options: ["build", "are building", "builds", "building"], correct: 1, explanation: "Currently = בתקופה הנוכחית = Present Progressive." },
+            { question: "What ___ right now?", options: ["do you do", "are you doing", "you do", "you are doing"], correct: 1, explanation: "right now = Present Progressive question." },
+            { question: "She ___ on the phone at the moment.", options: ["talks", "is talking", "talk", "talking"], correct: 1, explanation: "at the moment = Present Progressive." },
+            { question: "I ___ to music right now.", options: ["listen", "am listening", "listens", "listening"], correct: 1, explanation: "right now = Present Progressive. I → am." },
+            { question: "The kids ___ in the garden now.", options: ["play", "are playing", "plays", "playing"], correct: 1, explanation: "now = Present Progressive." },
+            { question: "He ___ a book at the moment.", options: ["reads", "is reading", "read", "reading"], correct: 1, explanation: "at the moment = Present Progressive." },
+            { question: "We ___ dinner right now.", options: ["cook", "are cooking", "cooks", "cooking"], correct: 1, explanation: "right now = Present Progressive." },
+            { question: "Look! It ___!", options: ["rains", "is raining", "rain", "raining"], correct: 1, explanation: "Look! = happening now = Present Progressive." },
+            { question: "My sister ___ for her exams this week.", options: ["studies", "is studying", "study", "studying"], correct: 1, explanation: "this week = temporary period = Present Progressive." },
+            { question: "I ___ English this year.", options: ["learn", "am learning", "learns", "learning"], correct: 1, explanation: "this year = temporary period = Present Progressive." },
+            { question: "The workers ___ the road today.", options: ["fix", "are fixing", "fixes", "fixing"], correct: 1, explanation: "today = Present Progressive." },
+
+            // Present Progressive - Negative (71-80)
+            { question: "I ___ right now.", options: ["don't sleep", "am not sleeping", "doesn't sleep", "not sleeping"], correct: 1, explanation: "I + am not + verb-ing." },
+            { question: "He ___ today.", options: ["doesn't work", "isn't working", "don't work", "not working"], correct: 1, explanation: "He + isn't + verb-ing (temporary)." },
+            { question: "They ___ attention.", options: ["don't pay", "aren't paying", "doesn't pay", "not paying"], correct: 1, explanation: "They + aren't + verb-ing." },
+            { question: "She ___ to me right now.", options: ["doesn't talk", "isn't talking", "don't talk", "not talking"], correct: 1, explanation: "right now = Progressive. She + isn't." },
+            { question: "We ___ TV at the moment.", options: ["don't watch", "aren't watching", "doesn't watch", "not watching"], correct: 1, explanation: "at the moment = Progressive. We + aren't." },
+            { question: "The baby ___ now.", options: ["doesn't cry", "isn't crying", "don't cry", "not crying"], correct: 1, explanation: "now = Progressive. The baby + isn't." },
+            { question: "I ___ anything at the moment.", options: ["don't do", "am not doing", "doesn't do", "not doing"], correct: 1, explanation: "at the moment = Progressive. I + am not." },
+            { question: "He ___ his homework right now.", options: ["doesn't do", "isn't doing", "don't do", "not doing"], correct: 1, explanation: "right now = Progressive. He + isn't." },
+            { question: "They ___ English at the moment.", options: ["don't speak", "aren't speaking", "doesn't speak", "not speaking"], correct: 1, explanation: "at the moment = Progressive." },
+            { question: "She ___ today.", options: ["doesn't work", "isn't working", "don't work", "not working"], correct: 1, explanation: "today (temporary) = Progressive." },
+
+            // Present Progressive - Questions (81-85)
+            { question: "___ you listening to me?", options: ["Do", "Does", "Are", "Is"], correct: 2, explanation: "You + are = Are you...?" },
+            { question: "___ she coming to the party?", options: ["Do", "Does", "Is", "Are"], correct: 2, explanation: "She + is = Is she...?" },
+            { question: "What ___ they doing now?", options: ["do", "does", "are", "is"], correct: 2, explanation: "They + are." },
+            { question: "___ it raining outside?", options: ["Do", "Does", "Is", "Are"], correct: 2, explanation: "It + is = Is it...?" },
+            { question: "Where ___ you going?", options: ["do", "does", "are", "is"], correct: 2, explanation: "You + are." },
+
+            // Stative Verbs (86-92)
+            { question: "I ___ this song! It's beautiful.", options: ["am loving", "love", "loves", "loving"], correct: 1, explanation: "love = stative verb → Present Simple." },
+            { question: "She ___ the answer.", options: ["is knowing", "knows", "know", "knowing"], correct: 1, explanation: "know = stative verb → Present Simple." },
+            { question: "We ___ a new car.", options: ["are wanting", "want", "wants", "wanting"], correct: 1, explanation: "want = stative verb → Present Simple." },
+            { question: "He ___ you're right.", options: ["is believing", "believes", "believe", "believing"], correct: 1, explanation: "believe = stative verb → Present Simple." },
+            { question: "I ___ help.", options: ["am needing", "need", "needs", "needing"], correct: 1, explanation: "need = stative verb → Present Simple." },
+            { question: "She ___ a big house.", options: ["is having", "has", "have", "having"], correct: 1, explanation: "have (possession) = stative verb → Simple." },
+            { question: "They ___ this restaurant.", options: ["are hating", "hate", "hates", "hating"], correct: 1, explanation: "hate = stative verb → Present Simple." },
+
+            // Mixed - choosing tense (93-100)
+            { question: "Be quiet! The baby ___.", options: ["sleeps", "is sleeping", "sleep", "sleeping"], correct: 1, explanation: "Be quiet! = happening now = Progressive." },
+            { question: "My brother ___ football every weekend.", options: ["is playing", "plays", "play", "playing"], correct: 1, explanation: "every weekend = routine = Simple." },
+            { question: "Look! The cat ___ the tree.", options: ["climbs", "is climbing", "climb", "climbing"], correct: 1, explanation: "Look! = now = Progressive." },
+            { question: "___ he usually ___ coffee?", options: ["Does/drink", "Is/drinking", "Do/drinks", "Does/drinks"], correct: 0, explanation: "usually = Simple. Does + base form." },
+            { question: "We ___ to the beach every summer.", options: ["are going", "goes", "go", "going"], correct: 2, explanation: "every summer = routine = Simple. We → go." },
+            { question: "She can't come. She ___ dinner.", options: ["cooks", "is cooking", "cook", "cooking"], correct: 1, explanation: "She can't come (right now) = Progressive." },
+            { question: "I ___ to school by bus every day.", options: ["am going", "goes", "go", "going"], correct: 2, explanation: "every day = routine = Simple." },
+            { question: "Why ___ they ___? The movie isn't over.", options: ["do/leave", "are/leaving", "does/leave", "is/leaving"], correct: 1, explanation: "Right now (movie not over) = Progressive." }
         ];
 
         let currentQuestion = 0;
         let score = 0;
         let quizStarted = false;
         let answered = false;
+        let shuffledQuestions = [];
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
 
         function startQuiz() {
+            shuffledQuestions = shuffleArray(questions);
             currentQuestion = 0;
             score = 0;
             quizStarted = true;
@@ -965,13 +1217,13 @@
 
         function showQuestion() {
             answered = false;
-            const q = questions[currentQuestion];
+            const q = shuffledQuestions[currentQuestion];
             
             document.getElementById('progress-bar').style.width = 
-                ((currentQuestion) / questions.length * 100) + '%';
+                ((currentQuestion) / shuffledQuestions.length * 100) + '%';
             
             document.getElementById('question-counter').textContent = 
-                `שאלה ${currentQuestion + 1} מתוך ${questions.length}`;
+                `שאלה ${currentQuestion + 1} מתוך ${shuffledQuestions.length}`;
             
             document.getElementById('question').innerHTML = 
                 q.question.replace('___', '<span class="blank">___</span>');
@@ -995,7 +1247,7 @@
             answered = true;
 
             const selectedIndex = parseInt(selected.dataset.index);
-            const q = questions[currentQuestion];
+            const q = shuffledQuestions[currentQuestion];
             const feedback = document.getElementById('feedback');
 
             document.querySelectorAll('.quiz-option').forEach((opt, i) => {
@@ -1017,14 +1269,14 @@
 
             document.getElementById('next-btn').disabled = false;
             
-            if (currentQuestion === questions.length - 1) {
+            if (currentQuestion === shuffledQuestions.length - 1) {
                 document.getElementById('next-btn').textContent = '🏆 סיום';
             }
         }
 
         document.getElementById('next-btn').addEventListener('click', () => {
             currentQuestion++;
-            if (currentQuestion < questions.length) {
+            if (currentQuestion < shuffledQuestions.length) {
                 showQuestion();
                 document.getElementById('next-btn').textContent = 'השאלה הבאה ➡️';
             } else {
@@ -1036,22 +1288,25 @@
             document.getElementById('quiz-container').style.display = 'none';
             document.getElementById('results').style.display = 'block';
 
-            const percentage = Math.round((score / questions.length) * 100);
+            const percentage = Math.round((score / shuffledQuestions.length) * 100);
             document.getElementById('results-score').textContent = percentage + '%';
 
             let emoji, text;
             if (percentage === 100) {
                 emoji = '🏆';
                 text = 'מושלם! אתה מוכן למבחן!';
-            } else if (percentage >= 80) {
+            } else if (percentage >= 90) {
                 emoji = '🌟';
+                text = 'מדהים! עבודה מצוינת!';
+            } else if (percentage >= 80) {
+                emoji = '🎯';
                 text = 'מעולה! כמעט שם!';
-            } else if (percentage >= 60) {
+            } else if (percentage >= 70) {
                 emoji = '💪';
-                text = 'טוב! תתרגל עוד קצת';
-            } else if (percentage >= 40) {
+                text = 'טוב מאוד! תמשיך לתרגל';
+            } else if (percentage >= 60) {
                 emoji = '📚';
-                text = 'לא רע, אבל כדאי לחזור על החומר';
+                text = 'לא רע! כדאי לחזור על החומר';
             } else {
                 emoji = '🎯';
                 text = 'קרא שוב את ההסברים ונסה שוב!';
@@ -1059,7 +1314,7 @@
 
             document.getElementById('results-emoji').textContent = emoji;
             document.getElementById('results-text').textContent = 
-                `${text}\nענית נכון על ${score} מתוך ${questions.length} שאלות.`;
+                `${text}\nענית נכון על ${score} מתוך ${shuffledQuestions.length} שאלות.`;
         }
     </script>
 </body>
